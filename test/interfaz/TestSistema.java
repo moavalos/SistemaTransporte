@@ -14,6 +14,8 @@ public class TestSistema {
 		assertEquals("JJZ526", nuevo.getPatente());
 		assertEquals((Integer) 5, nuevo.getCantidadMaximaDePasajeros());
 		assertEquals((Integer) 240, nuevo.getVelocidadMaxima());
+		assertEquals((Double) 41.40338, nuevo.getLatitud());
+		assertEquals((Double) 2.17403, nuevo.getLongitud());
 	}
 
 }

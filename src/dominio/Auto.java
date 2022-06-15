@@ -1,6 +1,6 @@
 package dominio;
 
-public class Auto {
+public class Auto extends Vehiculo {
 
 	private String patente;
 	private Integer cantidadMaximaDePasajeros;
@@ -11,6 +11,8 @@ public class Auto {
 		this.patente = patente;
 		this.cantidadMaximaDePasajeros = cantidadMaximaDePasajeros;
 		this.velocidadMaxima = velocidadMaxima;
+		this.setLongitud(longitud);
+		this.setLatitud(latitud);
 	}
 
 	public String getPatente() {
