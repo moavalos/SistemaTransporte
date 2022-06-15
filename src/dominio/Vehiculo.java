@@ -45,6 +45,12 @@ public class Vehiculo {
 		return true;
 	}
 
+	public void actualizarCoordenadas(Double latitud, Double longitud) {
+		this.latitud = latitud;
+		this.longitud = longitud;
+
+	}
+
 	public Double getLongitud() {
 		return longitud;
 	}

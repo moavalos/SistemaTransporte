@@ -23,19 +23,21 @@ public class Mapa {
 	}
 
 	public void agregarVehiculo(Vehiculo vehiculo) {
-		//this.vehiculos.add(vehiculo);
+		// this.vehiculos.add(vehiculo);
 		if (this.vehiculos.add(vehiculo))
 			cantidadDeVehiculos++;
 
 	}
 
-	public /*Object*/ Boolean hayCoalicion() {
+	public /* Object */ Boolean hayCoalicion() throws ColitionException {
 		HashSet<Vehiculo> vehiculoCopia = new HashSet<Vehiculo>();
 		vehiculoCopia.addAll(vehiculos);
-		if(vehiculoCopia.size() < vehiculos.size())
+		if (vehiculoCopia.size() < vehiculos.size())
 			coalicion = true;
-		
-		
+
+		if (coalicion)
+			throw new ColitionException();
+
 		return coalicion;
 	}
 

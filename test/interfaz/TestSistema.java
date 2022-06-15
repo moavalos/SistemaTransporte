@@ -2,14 +2,17 @@ package interfaz;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import dominio.Auto;
 import dominio.Bicicleta;
+import dominio.ColitionException;
 import dominio.Mapa;
 import dominio.Moto;
 import dominio.Tren;
+import dominio.Vehiculo;
 
 public class TestSistema {
 
@@ -53,8 +56,7 @@ public class TestSistema {
 	}
 
 	@Test
-
-	public void queSePuedaIncorporarDistintosVehiculos() {
+	public void queSePuedaIncorporarDistintosVehiculos() throws ColitionException {
 		Mapa mapaActual = new Mapa("Buenos Aires");
 		mapaActual.agregarVehiculo(new Auto("JJZ526", 5, 240, 10.40338, 1.17403));
 		mapaActual.agregarVehiculo(new Moto("094AB5", 200, 50.40338, 2.5656));
@@ -71,5 +73,44 @@ public class TestSistema {
 		assertFalse(mapaActual.hayCoalicion());
 
 	}
+	
+	@Test(expected = ColitionException.class)
+	public void queSeChoquenDosVehiculos() throws ColitionException { // LUCAS SI LEES ESTO TENES RAZON ES MUY DIVERTIDO
+		Vehiculo autito = new Auto("JJZ526", 5, 240, 41.40338, 2.17403);
+		Vehiculo motito = new Moto("094AB5", 200, 25.1234, 1.1234);
+		
+		Mapa mapaActual = new Mapa("Buenos Aires");
+		mapaActual.agregarVehiculo(autito);
+		mapaActual.agregarVehiculo(motito);
+		
+		autito.actualizarCoordenadas(25.1234, 1.1234);
+		
+		assertTrue(mapaActual.hayCoalicion());
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
